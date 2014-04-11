@@ -1,3 +1,6 @@
 # Linux
 .directory
 *~
+
+# Mono ejecutables
+*.exe
