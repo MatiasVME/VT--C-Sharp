@@ -7,37 +7,45 @@ public class Delegados4
 {
     public static void Main ()
     {
-        Del objDel = Metodo1;
-        objDel += Metodo2;
+        OtraClase objOtraClase = new OtraClase();
+
+        Del objDel = objOtraClase.Metodo1;
+        objDel += objOtraClase.Metodo2;
 
         TratarDelegados.InfoDelegado(objDel);
     }
- 
-    public static int Metodo1 (int n)
+}
+
+public class OtraClase
+{
+    public int Metodo1 (int n)
     {
         return n + 1;
     }
- 
-    public static int Metodo2 (int nn)
+
+    public int Metodo2 (int nn)
     {
         return nn + 2;
-    }
+    }    
 }
 
 public class TratarDelegados
 {
     public static void InfoDelegado (Delegate objDel)
     {
-        Console.WriteLine("Informacion del objeto delegado");
-        
+        Console.WriteLine("-- Información del objeto delegado --");
+
         if (objDel == null) {
-            Console.WriteLine("\tEl objeto delegado no referencia a ningun metodo");
+            Console.WriteLine("\tEl objeto delegado no referencia ningun metodo");
+
             return;
         }
-        
-        foreach (Delegate d in objDel.GetInvocationList ()) {
-            Console.WriteLine("\tNombre del método: {0}", d.Method);
-            Console.WriteLine("\tNombre de su clase: {0}", d.Target);
+
+        else {
+            foreach (Delegate d in objDel.GetInvocationList()) {
+                Console.WriteLine("\tMetodo: {0}", d.Method);
+                Console.WriteLine("\tClase: {0}", d.Target);
+            }
         }
     }
 }
