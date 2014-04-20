@@ -36,16 +36,13 @@ public class TratarDelegados
         Console.WriteLine("-- Información del objeto delegado --");
 
         if (objDel == null) {
-            Console.WriteLine("\tEl objeto delegado no referencia ningun metodo");
-
+            Console.WriteLine("\tEl objeto delegado no referencia ningún método");
             return;
         }
 
-        else {
-            foreach (Delegate d in objDel.GetInvocationList()) {
-                Console.WriteLine("\tMetodo: {0}", d.Method);
-                Console.WriteLine("\tClase: {0}", d.Target);
-            }
+        foreach (Delegate d in objDel.GetInvocationList()) {
+            Console.WriteLine("\tMétodo: {0}", d.Method);
+            Console.WriteLine("\tClase: {0}", d.Target);
         }
     }
 }
